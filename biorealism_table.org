@@ -1,0 +1,119 @@
+#+TITLE: Biorealism Tables
+#+bibliography:SNMC.bib
+#+PRINT_BIBLIOGRAPHY:biblatex
+#+OPTIONS: toc:nil num:nil html-style:nil author:nil date:nil
+#+LATEX_HEADER: \usepackage[margin=.1in]{geometry} \usepackage[table]{xcolor} \usepackage{caption} \captionsetup[table]{skip=10pt} \usepackage[backend=biber,style=numeric,]{biblatex} \addbibresource{SNMC.bib}
+# #+LATEX: \rowcolors{2}{green!80!yellow!50}{green!70!yellow!40}
+
+#+NAME: T1
+#+CAPTION: Predictions for Fundamental Biomechanisms of Neural Computation
+#+ATTR_LATEX: :align |l|l|l|l| :font \scriptsize :center nil
+| *SNMC Feature*                                             | *Predicted Biology*                          | *Experimental Evidence*                                                    |
+|------------------------------------------------------------+----------------------------------------------+----------------------------------------------------------------------------|
+|                                                            |                                              |                                                                            |
+| Assembly and WTA units represent                           | In the brain, there should be                | Sparse temporal coding and                                                 |
+| samples in sparse code. Units in                           | a set of neurons whose rate encodes          | dense rate coding of information                                           |
+| scoring circuit represent scores                           | information and another set whose            | are both common in multiple brain                                          |
+| in dense rate code.                                        | specific spike timing encodes information    | regions across many species. [cite/numeric:@rieke_spikes_1999]             |
+|                                                            |                                              |                                                                            |
+| SNMC uses Poisson spike rates in                           | In the brain, there should be mechanisms     | EPSCs and IPSCs in all neural                                              |
+| a first-to-spike race to re-create                         | to create Poisson spike profiles rates       | systems studied to date follow                                             |
+| programmatic sampling                                      | are controlled the amount of preysynaptic    | an exponentially-distributed                                               |
+|                                                            | input                                        | spacing rule (i.e. the amount of                                           |
+|                                                            |                                              | events in a given time window                                              |
+|                                                            |                                              | is Poisson). Increased synaptic                                            |
+|                                                            |                                              | input yields a change in Poisson                                           |
+|                                                            |                                              | rate meaning probability of race                                           |
+|                                                            |                                              | victory should directly scale                                              |
+|                                                            |                                              | with input. [cite/numeric:@phillips_synaptic_2011; @stevens_quantal_1993]  |
+|                                                            |                                              |                                                                            |
+| WTA detects winning asembly at each                        | In the brain, there should be a means of     | Ephaptic coupling has proven to be                                         |
+| time step and inhibits other                               | instantly inhibiting neighboring neurons     | an effective means of inhibition                                           |
+| assembly spikes that time-lag the                          | when a neuron spikes.                        | occuring at the speed of electrical                                        |
+| winner. SNMC speed and accuracy is                         |                                              | propagation. [cite/numeric:@zhang_asymmetric_2019; @blot_ultra-rapid_2014] |
+| vastly improved if this inhibiton occurs                   |                                              |                                                                            |
+| instantly.                                                 |                                              |                                                                            |
+|                                                            |                                              |                                                                            |
+| MUX unit can collect spikes from all assemblies but only   | "Central hub" neurons should be able to      | Dendritic segmentation of input                                            |
+| outputs spikes from winning assembly. This allows scoring  | listen to only certain dendrites while       | channels is a newly discovered                                             |
+| of each candidate sample without duplicating scoring       | silencing others, allowing parallel use of   | motif proposed for use in rerouting                                        |
+| circuitry for each latent variable value. MUX also allows  | a spiking soma by many different inputs.     | sensory information based on attention.                                    |
+| routing of resampled variable states according to particle |                                              | [cite/numeric:@wang_disinhibitory_2018; @yang_dendritic_2016]              |
+| scores                                                     |                                              |                                                                            |
+|                                                            |                                              |                                                                            |
+| Scoring units must precisely count spikes from assemblies  | Neurons should possess a mechanism for       | NMDAR plateau potentials are a newly                                       |
+|                                                            | accurately counting spikes that induce EPSCs | discovered non-decaying synaptic current                                   |
+|                                                            | on their dendrites despite rapid exponential | lasting 50ms that can stack linearly                                       |
+|                                                            | decay of synaptic currents.                  | with other arriving plateau potentials,                                    |
+|                                                            |                                              | providing a mechanism for short timescale                                  |
+|                                                            |                                              | counting of presynaptic spikes.                                            |
+|                                                            |                                              | [cite/numeric:@major_active_2013; @major_spatiotemporally_2008]            |
+
+
+
+
+#+NAME: T2
+#+CAPTION: Predictions for Large Scale Dynamics in the Brain 
+#+ATTR_LATEX: :align |l|l|l|l| :font \scriptsize :center nil
+| *SNMC Implementation*               | *Predicted Biology*                           | *Experimental Evidence*                                                    |
+|-------------------------------------+-----------------------------------------------+----------------------------------------------------------------------------|
+|                                     |                                               |                                                                            |
+| Sampling proceeds by discrete steps | Activity in each PQ circuit should occur      | Precisely timed local field                                                |
+| that occur each time assemblies     | in a periodic fashion, with alternating       | potentials exist in regions like                                           |
+| receive input.                      | up and down states.                           | hippocampus and cortex.[cite/numeric:@buzsaki_brain_2012]                  |
+|                                     |                                               |                                                                            |
+|                                     |                                               |                                                                            |
+| Each variable has its own P and     |                                               | Cortical microcolumns connect across                                       |
+| Q mircocircuit. States of parent    | WTA units must project to other microcircuits | brain regions and are known to temporally                                  |
+| variables, regardless of modality,  | in the brain that must be synched in time to  | synronize when communicating. Phase-locked                                 |
+| influence sampling by biasing       | form a unified latent state.                  | microcircuits have been proposed as a                                      |
+| assembly rates.                     |                                               | solution to the "Binding Problem". [cite/numeric:@reynolds_role_1999]      |
+|                                     |                                               |                                                                            |
+|                                     |                                               |                                                                            |
+|                                     |                                               |                                                                            |
+| Variables are hierarchically        | Microcolumns involved in sampling should      | Traveling waves recorded in EEG proceed                                    |
+| organized and are often sampled     | activate in a particular order each time      | stereotypically from brain region to brain                                 |
+| in order according to the specified | sampling occurs in Q.                         | region. [cite/numeric:@zhang_theta_2018]                                   |
+| generative model                    |                                               |                                                                            |
+|                                     |                                               |                                                                            |
+| With each pass of sampling,         | There should be an electrophysiological       | Gamma rhythms are often nested inside of                                   |
+| multiple latent variables are       | signature of steps and variable sampling      | single cycles of the theta rhythm. [cite/numeric:@lisman_theta-gamma_2013] |
+| chunked within a single sampling    | within steps.                                 |                                                                            |
+| step.                               |                                               |                                                                            |
+
+
+#+NAME: T3
+#+CAPTION: Predictions for Cortical Microcircuit Activity and Connectivity 
+#+ATTR_LATEX: :align |l|l|l|l| :font \scriptsize :center nil
+| *SNMC Implementation*                | *Predicted Biology*                   | *Experimental Evidence*                                                                       |
+|--------------------------------------+---------------------------------------+-----------------------------------------------------------------------------------------------|
+|                                      |                                       |                                                                                               |
+| WTA units fire only sparsely         | Superficial cortical layers           | Layer II/III fires the most                                                                   |
+| at the beginning of a sample /score  | should be the most sparse firing      | sparsely of the cortical layers.[cite/numeric:@barth_experimental_2012; @sakata_laminar_2009] |
+| epoch to determine the race winner   | of the cortical layers                |                                                                                               |
+|                                      |                                       |                                                                                               |
+| Assembly neurons receive input from  | Layers should receiving               | Layer IV of cortex receives                                                                   |
+| observations and the winning state   | input from sensory data should also   | sensory input from thalamus                                                                   |
+| from the parent varibles' WTA        | receive input from other microcolumns | and intracortical input from                                                                  |
+|                                      |                                       | Layer II/III (WTAs) of other                                                                  |
+|                                      |                                       | microcolumns. [cite/numeric:@da_costa_whose_2010]                                             |
+|                                      |                                       |                                                                                               |
+| WTA neurons control which assembly's | Layers containing WTA should inhibit  | Layer II/III should send inhibitory projections                                               |
+| spikes pass through the MUX.         | dendrites of MUX-mediating neurons    | to Layer V dendrites.[cite/numeric:@naka_inhibitory_2016]                                     |
+|                                      |                                       |                                                                                               |
+| Resampler passes latent states from  | Brain regions with access to many     | The cortical-basal ganglia                                                                    |
+| resampled particles to assemblies    | microcolumns' input should project    | loop contains this exact                                                                      |
+|                                      | back to their microcolumns of origin, | architecture. [cite/numeric:@redgrave_goal-directed_2010]                                     |
+|                                      | feeding back resampled latent states  |                                                                                               |
+|                                      | to sampling assemblies.               |                                                                                               |
+
+
+
+
+
+
+
+
+
+Raw scores from Layer 5 are actually important b/c they're explaining the marginal likelihood of the input. Unpredicted inputs should induce attention?
+Measuring the quality of the predictive code. 
