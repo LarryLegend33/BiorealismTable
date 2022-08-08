@@ -73,7 +73,7 @@
 |                                     |                                               |                                                                            |
 | Variables are hierarchically        | Microcolumns involved in sampling should      | Traveling waves recorded in EEG proceed                                    |
 | organized and are often sampled     | activate in a particular order each time      | stereotypically from brain region to brain                                 |
-| in order according to the specified | sampling occurs in Q.                         | region. [cite/numeric:@zhang_theta_2018]                                   |
+| in order according to the specified | sampling occurs in Q.                         | region. [cite/numeric:@zhang_theta_2018; @lubenov_hippocampal_2009]        |
 | generative model                    |                                               |                                                                            |
 |                                     |                                               |                                                                            |
 | With each pass of sampling,         | There should be an electrophysiological       | Gamma rhythms are often nested inside of                                   |
